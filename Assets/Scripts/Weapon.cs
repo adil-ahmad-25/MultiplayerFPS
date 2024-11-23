@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -16,6 +17,25 @@ public class Weapon : MonoBehaviour
 
     private float nextFire;
 
+    [Header("Ammo")]
+    public int mag = 5;
+    public int ammo = 30;
+    public int magAmmo = 30;
+
+    [Header("UI")]
+    public TextMeshProUGUI magText;
+    public TextMeshProUGUI ammoText;
+
+    [Header("Animation")]
+    public Animation ani;
+    public AnimationClip reload;
+
+
+    private void Start()
+    {
+        magText.text = mag.ToString();
+        ammoText.text = ammo + "/" + magAmmo;
+    }
 
     void Update()
     {
@@ -24,11 +44,21 @@ public class Weapon : MonoBehaviour
             nextFire -= Time.deltaTime;
         }
         
-        if (Input.GetButton("Fire1") && nextFire <= 0)
+        if (Input.GetButton("Fire1") && nextFire <= 0 && ammo > 0 && ani.isPlaying == false)
         {
             nextFire = 1 / fireRate;
+
+            ammo--;
             
             Fire();
+        }
+
+        magText.text = mag.ToString();
+        ammoText.text = ammo + "/" + magAmmo;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
         }
     }
 
@@ -47,5 +77,20 @@ public class Weapon : MonoBehaviour
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
             }
         }
+    }
+
+    void Reload()
+    {
+        ani.Play(reload.name);
+        
+        if (mag > 0)
+        {
+            mag--;
+
+            ammo = magAmmo;
+        }
+
+        magText.text = mag.ToString();
+        ammoText.text = ammo + "/" + magAmmo;
     }
 }
