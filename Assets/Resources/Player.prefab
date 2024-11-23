@@ -678,6 +678,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49bc88aa06902514495fed2edff8424d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6966416143403534607}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49bc88aa06902514495fed2edff8424d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6236818834474323238}
   m_SourcePrefab: {fileID: 100100000, guid: 49bc88aa06902514495fed2edff8424d, type: 3}
 --- !u!4 &3645599801659930025 stripped
 Transform:
@@ -705,3 +708,17 @@ MonoBehaviour:
   fireRate: 5
   playerCamera: {fileID: 9110609270762686461}
   hitVFX: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+--- !u!114 &6236818834474323238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169230551244140307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058b9d920ae250f4785eb79738434b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayCalmp: 0.09
+  smoothing: 3
