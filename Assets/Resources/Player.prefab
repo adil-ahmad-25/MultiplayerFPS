@@ -1133,6 +1133,9 @@ MonoBehaviour:
   ammoText: {fileID: 4631021522365247885}
   ani: {fileID: 6333300010817343603}
   reload: {fileID: 7400000, guid: d5090e2eff7b7944c86715000aaa7d5c, type: 2}
+  recoverPercent: 0.7
+  recoilUp: 1
+  recoilBack: 0
 --- !u!114 &6236818834474323238
 MonoBehaviour:
   m_ObjectHideFlags: 0
